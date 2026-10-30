@@ -1,122 +1,37 @@
-# OLIST · Detección de anomalías en órdenes
+# OLIST — versión del archivo Minería Datos.rar
 
-Proyecto de minería de datos que integra SQL Server, Python y Power BI para identificar órdenes inusuales con Isolation Forest y Local Outlier Factor (LOF), comparar sus detecciones y priorizar la revisión humana.
+Este repositorio fue actualizado con los archivos proporcionados en `Minería Datos.rar`. Esta versión sustituye al paquete anterior; el historial de Git conserva la entrega previa.
 
-## Flujo
+## Archivos principales
 
-```text
-CSV OLIST → Bronze → Silver → Gold → Python (IF + LOF) → resultados → Power BI
-```
+- `Proyecto original.sql`: SQL original del archivo recibido.
+- `Proyecto final`: segunda versión SQL incluida, conservada con su nombre original sin extensión.
+- `Proyecto mineria original.py`: implementación original de Python.
+- `auditar_y_puntuar.py`: alternativa que lee Gold y exporta resultados locales; no escribe en SQL.
+- `Dashboard_OLIST_SQL.pbip`: informe conectado al modelo `Dashboard_SQL.SemanticModel`; conservar las carpetas junto al archivo.
+- `Dashboard_SQL.pbip`: segundo proyecto SQL incluido.
+- `PowerBI_OLIST/OLIST.pbip`: proyecto alternativo basado en CSV. Sus instrucciones están en `PowerBI_OLIST/LEEME.md`.
+- `resultados/`: metadatos, sensibilidad, estabilidad y Top 20 incluidos en el archivo recibido. Son resultados de esa ejecución, no una ejecución nueva de esta actualización.
 
-SQL prepara las características; Python ejecuta los modelos; Power BI presenta los resultados persistidos en SQL. Una anomalía no implica fraude.
+## Requisitos y uso
 
-## Contenido
-
-| Archivo o carpeta | Función |
-|---|---|
-| `sql/Proyecto_solo_etapas.sql` | Preparación y validaciones SQL; conserva solo los encabezados de etapa. |
-| `ejecutar_proyecto.py` | Coordina la ejecución a partir de la configuración local. |
-| `auditar_y_puntuar.py` | Preprocesamiento, IF, LOF, scoring y exportaciones. |
-| `soporte_proyecto.py` | Calidad, distancia, perfiles, evaluación y publicación transaccional. |
-| `inspeccion_documental.py` | Genera el contraste documental de casos seleccionados. |
-| `publicar_ejecucion.py` | Publica una ejecución existente tras contrastar la fuente. |
-| `verificar_ejecucion.py` | Compara resultados locales con la publicación SQL. |
-| `test_proyecto.py` | Pruebas con datos sintéticos y conexiones simuladas. |
-| `powerbi/` | Proyecto de informe y modelo semántico, sin caché de datos. |
-| `datos/README.md` | Fuente y ubicación de datos externos. |
-
-## Requisitos
-
-- Windows, Python 3.11 o posterior y dependencias de `requirements_proyecto.txt`.
-- SQL Server con la base `OLIST_DW` y ODBC Driver 17 for SQL Server.
-- Autenticación de Windows con los permisos correspondientes.
-- Power BI Desktop compatible con proyectos PBIP.
-
-Las dependencias no están fijadas a versiones concretas. Las ejecuciones registran versiones de Python y bibliotecas en sus metadatos.
-
-## 1. Preparar la base
-
-Este repositorio no crea una instalación completa desde cero: la carga inicial de CSV en Bronze es externa. El SQL presupone las seis tablas Bronze de clientes, órdenes, productos, vendedores, ítems y pagos.
-
-`sql/Proyecto_solo_etapas.sql` contiene operaciones DROP/CREATE de Silver y Gold. Revísalo y ejecútalo por etapas en una base de trabajo; no es una migración segura para repetir sobre una base con trabajo que deba conservarse. Los separadores GO crean lotes y un THROW no garantiza detener todos los lotes siguientes.
-
-El flujo Python consume las seis tablas Silver y `gold.order_anomaly_features`. El modelo de Power BI también referencia `gold.order_anomaly_ml` y `gold.order_anomaly_scoring`. El SQL incluido prepara ML, pero no crea ni carga automáticamente la tabla scoring para un entorno nuevo. Esa inicialización queda como requisito previo y debe respetar el esquema esperado por `publicar_sql` y el modelo Power BI.
-
-## 2. Configurar Python
-
-Desde la carpeta del proyecto:
+SQL Server con `OLIST_DW`, ODBC Driver 17 for SQL Server, Python con numpy, pandas, pyodbc y scikit-learn, y Power BI Desktop compatible con PBIP.
 
 ```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-python -m pip install -r requirements_proyecto.txt
-Copy-Item config_proyecto.example.json config_proyecto.json
+python -m pip install -r requirements.txt
+python auditar_y_puntuar.py --server TU_SERVIDOR --output resultados
 ```
 
-Edita `config_proyecto.json`: reemplaza `TU_SERVIDOR`, ajusta el umbral y documenta su justificación. El archivo local se excluye de Git.
+El análisis presupone `gold.order_anomaly_features` existente. La conexión SQL de los proyectos recibidos apunta al servidor `JUAN`: ajustarla en Power Query o en la configuración del origen. No se incluyen contraseñas.
 
-La configuración de ejemplo tiene `publicar_sql: false`: genera evidencia local sin publicar cambios SQL. La conexión utiliza autenticación de Windows; no se necesitan contraseñas en el código.
+Para usar el proyecto CSV, generar primero los resultados y ajustar `CarpetaResultados` en Power BI. El scoring completo no se incluye en Git por su tamaño; se genera con el comando anterior. El análisis local no publica automáticamente esos resultados en el dashboard SQL.
 
-## 3. Ejecutar el análisis
+Los SQL y el Python original pueden modificar o reconstruir tablas: revisar sus instrucciones antes de ejecutarlos. La actualización del repositorio no ejecutó los análisis ni modificó la base.
 
-```powershell
-python ejecutar_proyecto.py
-```
+## Archivos excluidos de la carga
 
-También puedes abrir `EJECUTAR_PROYECTO.cmd` con el entorno Python preparado. Los resultados se guardan en una carpeta independiente dentro de `ejecuciones/`. `ULTIMA_EJECUCION.txt` señala la última terminada.
+Se omitieron dependencias instaladas, cachés `.pbi`, bytecode, metadatos `.platform`, esquemas auxiliares de validación, la carpeta `outputs/` y los archivos mayores de 5 MB (`resultados/order_anomaly_scoring.csv` y `resultados/reporte_input.json`). El Excel y sus exportaciones siguen disponibles en el RAR original. No se alteraron los archivos fuente recibidos, salvo la actualización del `.gitignore`; se añadieron este README y `requirements.txt`.
 
-Entre las salidas se incluyen scoring, Top 20 explicado, controles de calidad, sensibilidad de umbral, estabilidad, evaluación por estado, metadatos y una plantilla de revisión humana. La plantilla debe completarse; su generación no acredita una revisión realizada.
+La generación Excel del archivo recibido depende de un entorno específico y llama a `preparar_reporte.py`, que no viene incluido en el RAR; por ello no se presenta como ejecutable desde una instalación nueva.
 
-La distancia opcional usa coordenadas postales, Haversine y el máximo por orden; no representa una ruta vial. La integración opcional de Excel del entorno original no se incluye en esta copia portable.
-
-## 4. Publicar y abrir Power BI
-
-Con `publicar_sql: false`, el informe SQL no lee los CSV generados y conserva los resultados publicados anteriormente. Para actualizarlo, primero debe existir una tabla scoring compatible y con la misma cohorte. Después puede activarse `publicar_sql: true` o usarse:
-
-```powershell
-python publicar_ejecucion.py ejecuciones/NOMBRE_CARPETA --server TU_SERVIDOR
-```
-
-La publicación modifica SQL, compara la fuente y las órdenes existentes, y utiliza una transacción con rollback ante errores. Si hay geolocalización, también puede agregar y actualizar columnas geográficas de Gold.
-
-Abre `powerbi/Dashboard_OLIST_Claro.pbip`. Conserva a su lado las carpetas `.Report` y `.SemanticModel`. En Power BI, cambia el origen `TU_SERVIDOR` por tu servidor en la configuración del origen de datos o en los pasos de conexión de Power Query y actualiza los datos. Este ajuste es independiente de `config_proyecto.json`.
-
-El proyecto no incluye caché ni credenciales: requiere conexión a la base para cargar datos.
-
-### Páginas del dashboard
-
-- **Resumen:** órdenes, detecciones por modelo, consenso, prioridad y rareza.
-- **Explorar órdenes:** identificación, puntajes, perfiles y filtros para investigar casos.
-- **Perfiles de anomalía:** combinaciones de motivos de órdenes con prioridad ALTA o MEDIA.
-- **Importes y logística:** montos, envío y tiempos por etapa y estado geográfico del cliente. BRL significa reales brasileños. El total de la orden incluye envío.
-
-El modelo no relaciona por order_id la tabla scoring con features: los filtros de anomalías no conectan automáticamente el análisis logístico.
-
-## Interpretación y límites
-
-El flujo Python incluido normaliza los scores por percentil empírico y calcula su promedio. La prioridad de modelo ALTA/MEDIA/BAJA representa coincidencia de dos, uno o ningún modelo. El nivel de rareza divide el puntaje en intervalos hasta 0,25; 0,50; 0,75 y 1; no es una probabilidad. La prioridad operativa P1–P4 se exporta aparte y considera controles de calidad.
-
-El corte inicial del 2% es exploratorio. Se analiza sensibilidad y estabilidad, pero sin etiquetas verificadas no se afirma precisión o recall. Los perfiles y desviaciones son descriptores, no causas. Se trata de un análisis retrospectivo que utiliza información de entrega; los ceros heredados de Gold pueden ocultar faltantes.
-
-## Pruebas
-
-```powershell
-python -m unittest test_proyecto.py
-```
-
-Estas pruebas no requieren una conexión real y no certifican la carga de una base nueva ni una publicación real.
-
-## Subir a GitHub
-
-Crea un repositorio vacío. Para cargar desde el navegador, utiliza Add file → Upload files y arrastra **el contenido de esta carpeta**, no el ZIP. Si GitHub limita la carga, utiliza Git:
-
-```powershell
-git init
-git add .
-git commit -m "Agregar proyecto OLIST de detección de anomalías"
-git branch -M main
-git remote add origin https://github.com/TU_USUARIO/OLIST-Deteccion-Anomalias.git
-git push -u origin main
-```
-
-Reemplaza la URL por la de tu repositorio. Este paquete no se ha publicado automáticamente. No se incluye una licencia del código: el autor puede escogerla antes de distribuirlo. Los datos externos tienen sus propias condiciones de uso.
+Una anomalía indica un caso para revisión, no fraude confirmado. Consulta también `Dashboard_OLIST_SQL_LEEME.md`, `Diagnostico_OLIST.md` y `PowerBI_OLIST/LEEME.md` para conocer el alcance de cada variante; esos documentos se conservan tal como venían en el archivo y pueden describir versiones históricas.

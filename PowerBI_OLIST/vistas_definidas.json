@@ -1,0 +1,23 @@
+{
+  "pages": [
+    [
+      "resumen",
+      "Resumen"
+    ],
+    [
+      "ordenes",
+      "Explorar órdenes"
+    ],
+    [
+      "top20",
+      "Top 20"
+    ],
+    [
+      "evaluacion",
+      "Evaluación"
+    ]
+  ],
+  "visual_count": 23,
+  "source_rows": 99441,
+  "native_validation": "Pendiente: Power BI Desktop no detectado"
+}

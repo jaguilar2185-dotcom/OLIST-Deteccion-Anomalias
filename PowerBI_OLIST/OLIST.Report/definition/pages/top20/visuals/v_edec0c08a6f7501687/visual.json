@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "v_edec0c08a6f7501687",
+  "position": {
+    "x": 24,
+    "y": 80,
+    "z": 16,
+    "width": 280,
+    "height": 130,
+    "tabOrder": 16
+  },
+  "visual": {
+    "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Estado de la orden'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Top20"
+                    }
+                  },
+                  "Property": "order_status"
+                }
+              },
+              "queryRef": "Top20.order_status",
+              "nativeQueryRef": "order_status",
+              "displayName": "Estado"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

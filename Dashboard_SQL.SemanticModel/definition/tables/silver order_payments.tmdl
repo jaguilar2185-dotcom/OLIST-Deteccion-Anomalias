@@ -1,0 +1,58 @@
+table 'silver order_payments'
+	lineageTag: 55903787-d15b-4953-8bd2-3605370c463e
+
+	column order_id
+		dataType: string
+		lineageTag: f21fba63-880d-425d-9298-6b0afd0371d9
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_sequential
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c129f6c-d57c-4d8a-8261-8cbe6a24cb25
+		summarizeBy: sum
+		sourceColumn: payment_sequential
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_type
+		dataType: string
+		lineageTag: 87a878ec-7ea5-4729-bc5a-5aaaa9d0cf19
+		summarizeBy: none
+		sourceColumn: payment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_installments
+		dataType: int64
+		formatString: 0
+		lineageTag: 30b33443-0c49-4658-b4f4-3c05aeb35c00
+		summarizeBy: sum
+		sourceColumn: payment_installments
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_value
+		dataType: double
+		lineageTag: a4175ffe-8db4-4554-a980-ce8dea480866
+		summarizeBy: sum
+		sourceColumn: payment_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'silver order_payments' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("JUAN", "OLIST_DW"),
+				  #"Navegación 1" = Origen{[Schema = "silver", Item = "order_payments"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+

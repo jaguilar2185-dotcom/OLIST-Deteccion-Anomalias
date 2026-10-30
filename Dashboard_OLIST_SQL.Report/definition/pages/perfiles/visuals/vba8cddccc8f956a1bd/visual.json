@@ -1,0 +1,219 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "vba8cddccc8f956a1bd",
+  "position": {
+    "x": 23.877415056628912,
+    "y": 536.90073284477012,
+    "z": 4000,
+    "height": 251.73617588274485,
+    "width": 1232.074616922052,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "order_id"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.order_id",
+              "nativeQueryRef": "Orden",
+              "displayName": "Orden"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "anomaly_score_final"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.anomaly_score_final",
+              "nativeQueryRef": "Score final",
+              "displayName": "Score final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "prioridad_modelo"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.prioridad_modelo",
+              "nativeQueryRef": "Prioridad",
+              "displayName": "Prioridad"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "perfil_anomalia"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.perfil_anomalia",
+              "nativeQueryRef": "Motivo de revisión",
+              "displayName": "Motivo de revisión"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_scoring"
+                  }
+                },
+                "Property": "anomaly_score_final"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Casos para revisión'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8e8e97e7ee50760c6db6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_scoring"
+              }
+            },
+            "Property": "anomaly_score_final"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "g",
+              "Entity": "gold order_anomaly_scoring",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "g"
+                        }
+                      },
+                      "Property": "anomaly_score_final"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "0.49D"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,367 @@
+cultureInfo es-MX
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "gold_order_anomaly_scoring.nivel_rareza": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_scoring",
+			          "ConceptualProperty": "nivel_rareza"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rareza": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_scoring.prioridad_modelo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_scoring",
+			          "ConceptualProperty": "prioridad_modelo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prioridad": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_scoring.order_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_scoring",
+			          "ConceptualProperty": "order_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Orden": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_scoring.anomaly_score_final": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_scoring",
+			          "ConceptualProperty": "anomaly_score_final"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Score final": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_scoring.anomaly_score_if": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_scoring",
+			          "ConceptualProperty": "anomaly_score_if"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Score IF": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_scoring.anomaly_score_lof": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_scoring",
+			          "ConceptualProperty": "anomaly_score_lof"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Score LOF": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_scoring.perfil_anomalia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_scoring",
+			          "ConceptualProperty": "perfil_anomalia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Perfil de anomalía": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Perfil": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Motivo de revisión": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_scoring.anomalia_consenso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_scoring",
+			          "ConceptualProperty": "anomalia_consenso"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Consenso": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_features.order_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_features",
+			          "ConceptualProperty": "order_status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Estado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_features.customer_state": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_features",
+			          "ConceptualProperty": "customer_state"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Estado cliente": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_features.order_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_features",
+			          "ConceptualProperty": "order_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Orden": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_features.monto_total_orden": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_features",
+			          "ConceptualProperty": "monto_total_orden"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Monto BRL": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_features.freight_total": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_features",
+			          "ConceptualProperty": "freight_total"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Freight BRL": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_features.numero_items": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_features",
+			          "ConceptualProperty": "numero_items"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Ítems": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_features.horas_compra_entrega": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_features",
+			          "ConceptualProperty": "horas_compra_entrega"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Entrega horas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_order_anomaly_features.dias_retraso_entrega": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold order_anomaly_features",
+			          "ConceptualProperty": "dias_retraso_entrega"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Retraso días": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

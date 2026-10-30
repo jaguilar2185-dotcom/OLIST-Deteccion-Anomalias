@@ -1,0 +1,128 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "v_83076208efb858b081",
+  "position": {
+    "x": 24,
+    "y": 560,
+    "z": 11,
+    "width": 1228,
+    "height": 170,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Reglas de revisión'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "Diferencia pago"
+                }
+              },
+              "queryRef": "Scoring.Diferencia pago",
+              "nativeQueryRef": "Diferencia pago",
+              "displayName": "Diferencia pago"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "Freight alto"
+                }
+              },
+              "queryRef": "Scoring.Freight alto",
+              "nativeQueryRef": "Freight alto",
+              "displayName": "Freight alto"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "Monto negativo"
+                }
+              },
+              "queryRef": "Scoring.Monto negativo",
+              "nativeQueryRef": "Monto negativo",
+              "displayName": "Monto negativo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "Algún modelo"
+                }
+              },
+              "queryRef": "Scoring.Algún modelo",
+              "nativeQueryRef": "Algún modelo",
+              "displayName": "Algún modelo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "Porcentaje marcado"
+                }
+              },
+              "queryRef": "Scoring.Porcentaje marcado",
+              "nativeQueryRef": "Porcentaje marcado",
+              "displayName": "Porcentaje marcado"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "rows": 99441,
+  "source": "gold.order_anomaly_features",
+  "contamination": 0.02,
+  "seed": 42,
+  "log_signed_columns": [
+    "monto_total_orden",
+    "freight_total",
+    "peso_total_g",
+    "volumen_total_cm3"
+  ],
+  "medians_transformed": {
+    "monto_total_orden": 4.659279511635123,
+    "freight_total": 2.895359299407204,
+    "proporcion_freight_precio": 0.22437395659432388,
+    "numero_items": 1.0,
+    "numero_vendedores": 1.0,
+    "numero_pagos": 1.0,
+    "max_cuotas": 2.0,
+    "peso_total_g": 6.6052979209482015,
+    "volumen_total_cm3": 8.877521453852872,
+    "horas_compra_entrega": 245.0,
+    "dias_retraso_entrega": -12.0,
+    "tipos_pago_distintos": 1.0,
+    "diferencia_pago": 0.0
+  },
+  "columns_scaled": [
+    "monto_total_orden",
+    "freight_total",
+    "proporcion_freight_precio",
+    "numero_items",
+    "numero_vendedores",
+    "numero_pagos",
+    "max_cuotas",
+    "peso_total_g",
+    "volumen_total_cm3",
+    "horas_compra_entrega",
+    "dias_retraso_entrega",
+    "tipos_pago_distintos",
+    "diferencia_pago"
+  ],
+  "mean": [
+    4.668482057852048,
+    2.9643559453329873,
+    0.30773391284658985,
+    1.1328325338643015,
+    1.0057219859011877,
+    1.0446998722860792,
+    2.930491447189791,
+    6.724821352806031,
+    8.857424450336785,
+    299.71524823764844,
+    -11.880552287285928,
+    1.0225762009633854,
+    -1.6624820747981215
+  ],
+  "scale": [
+    0.8993255649897413,
+    0.6136164409718592,
+    0.31361867694549656,
+    0.5456634173926866,
+    0.1509463778380722,
+    0.3811761946338745,
+    2.7156732414786795,
+    1.4803954283426362,
+    1.5297583184818142,
+    225.87633330879538,
+    10.030850733265078,
+    0.14861570758813264,
+    36.755150604372496
+  ],
+  "missing_indicators": [
+    "proporcion_freight_precio",
+    "horas_compra_entrega",
+    "dias_retraso_entrega"
+  ],
+  "jaccard_methods": 0.13043478260869565,
+  "limitations": [
+    "Sin distancia geográfica",
+    "Gold confunde algunos faltantes con cero",
+    "Evaluación retrospectiva: incluye información posterior a la compra",
+    "Percentiles relativos a la cohorte; no probabilidad de fraude"
+  ]
+}

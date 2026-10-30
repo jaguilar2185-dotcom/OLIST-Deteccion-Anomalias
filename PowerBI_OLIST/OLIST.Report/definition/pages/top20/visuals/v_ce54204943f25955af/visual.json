@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "v_ce54204943f25955af",
+  "position": {
+    "x": 328,
+    "y": 80,
+    "z": 17,
+    "width": 280,
+    "height": 130,
+    "tabOrder": 17
+  },
+  "visual": {
+    "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Prioridad'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Top20"
+                    }
+                  },
+                  "Property": "prioridad_modelo"
+                }
+              },
+              "queryRef": "Top20.prioridad_modelo",
+              "nativeQueryRef": "prioridad_modelo",
+              "displayName": "Prioridad"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

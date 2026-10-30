@@ -1,0 +1,81 @@
+table 'silver order_items'
+	lineageTag: 68223aa5-b136-4ef4-a2a9-d3f829eb45ba
+
+	column order_id
+		dataType: string
+		lineageTag: 33b9058b-7979-46ca-9da5-5d6a8699e294
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_item_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 47d7d892-0dcd-4f59-84f0-c35df2d08796
+		summarizeBy: sum
+		sourceColumn: order_item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: 4f32920a-7e10-4ef2-b692-142112e7569d
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_id
+		dataType: string
+		lineageTag: 4990d3f1-6153-486e-9fe3-b12724033e42
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipping_limit_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1f751c4d-f6f0-4b46-975c-845fd9fcba4c
+		summarizeBy: none
+		sourceColumn: shipping_limit_date
+
+		variation Variation
+			isDefault
+			relationship: dc0b329f-7146-4f34-af33-08f254cedb7c
+			defaultHierarchy: LocalDateTable_4b6d1330-d59e-49a9-89c8-f8df97a2642d.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		lineageTag: 5cf98cbc-dff5-4736-b2d6-dae28651c346
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column freight_value
+		dataType: double
+		lineageTag: 048b43e8-f1b5-42df-99ad-e243123a13c1
+		summarizeBy: sum
+		sourceColumn: freight_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'silver order_items' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("JUAN", "OLIST_DW"),
+				  #"Navegación 1" = Origen{[Schema = "silver", Item = "order_items"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+

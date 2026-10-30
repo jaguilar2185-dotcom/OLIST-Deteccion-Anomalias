@@ -1,0 +1,191 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "v_bb1c06286ab05e6fbe",
+  "position": {
+    "x": 24,
+    "y": 238,
+    "z": 18,
+    "width": 1228,
+    "height": 520,
+    "tabOrder": 18
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'20 casos de la ejecución · filtros reducen este conjunto'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Top20"
+                    }
+                  },
+                  "Property": "order_id"
+                }
+              },
+              "queryRef": "Top20.order_id",
+              "nativeQueryRef": "order_id",
+              "displayName": "Orden"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Top20"
+                    }
+                  },
+                  "Property": "anomaly_score_final"
+                }
+              },
+              "queryRef": "Top20.anomaly_score_final",
+              "nativeQueryRef": "anomaly_score_final",
+              "displayName": "Score final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Top20"
+                    }
+                  },
+                  "Property": "order_status"
+                }
+              },
+              "queryRef": "Top20.order_status",
+              "nativeQueryRef": "order_status",
+              "displayName": "Estado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Top20"
+                    }
+                  },
+                  "Property": "monto_total_orden"
+                }
+              },
+              "queryRef": "Top20.monto_total_orden",
+              "nativeQueryRef": "monto_total_orden",
+              "displayName": "Monto BRL"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Top20"
+                    }
+                  },
+                  "Property": "monto_pagado"
+                }
+              },
+              "queryRef": "Top20.monto_pagado",
+              "nativeQueryRef": "monto_pagado",
+              "displayName": "Pagado BRL"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Top20"
+                    }
+                  },
+                  "Property": "freight_total"
+                }
+              },
+              "queryRef": "Top20.freight_total",
+              "nativeQueryRef": "freight_total",
+              "displayName": "Freight BRL"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Top20"
+                    }
+                  },
+                  "Property": "dias_retraso_entrega"
+                }
+              },
+              "queryRef": "Top20.dias_retraso_entrega",
+              "nativeQueryRef": "dias_retraso_entrega",
+              "displayName": "Retraso días"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Top20"
+                    }
+                  },
+                  "Property": "variables_revision"
+                }
+              },
+              "queryRef": "Top20.variables_revision",
+              "nativeQueryRef": "variables_revision",
+              "displayName": "Variables para revisión"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Top20"
+                  }
+                },
+                "Property": "anomaly_score_final"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    }
+  }
+}

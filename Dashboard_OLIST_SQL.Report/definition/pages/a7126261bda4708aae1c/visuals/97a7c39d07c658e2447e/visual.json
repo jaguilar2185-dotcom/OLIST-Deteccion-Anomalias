@@ -1,0 +1,415 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "97a7c39d07c658e2447e",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 279.56477660075518,
+    "width": 1870.6316806232987,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "order_id"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.order_id",
+              "nativeQueryRef": "order_id"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_features"
+                        }
+                      },
+                      "Property": "monto_total_orden"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_features.monto_total_orden)",
+              "nativeQueryRef": "Suma de monto_total_orden"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_features"
+                        }
+                      },
+                      "Property": "monto_pagado"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_features.monto_pagado)",
+              "nativeQueryRef": "Suma de monto_pagado"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_features"
+                        }
+                      },
+                      "Property": "freight_total"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_features.freight_total)",
+              "nativeQueryRef": "Suma de freight_total"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_features"
+                        }
+                      },
+                      "Property": "dias_retraso_entrega"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_features.dias_retraso_entrega)",
+              "nativeQueryRef": "Suma de dias_retraso_entrega"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "order_estimated_delivery_date"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.order_estimated_delivery_date",
+              "nativeQueryRef": "order_estimated_delivery_date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "order_delivered_carrier_date"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.order_delivered_carrier_date",
+              "nativeQueryRef": "order_delivered_carrier_date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "order_approved_at"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.order_approved_at",
+              "nativeQueryRef": "order_approved_at"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "order_delivered_customer_date"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.order_delivered_customer_date",
+              "nativeQueryRef": "order_delivered_customer_date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "numero_productos_distintos"
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_features.numero_productos_distintos)",
+              "nativeQueryRef": "numero_productos_distintos"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "order_purchase_timestamp"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.order_purchase_timestamp",
+              "nativeQueryRef": "order_purchase_timestamp"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5ab5ef9fb47d2e0e9350",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "order_id"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "g",
+              "Entity": "gold order_anomaly_features",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "g"
+                          }
+                        },
+                        "Property": "order_id"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'85a22eb264ad44ff56c4955a66876fed'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "0ac8867da5767a958112",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_features"
+                  }
+                },
+                "Property": "monto_total_orden"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b46b9160a0dc88930400",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_features"
+                  }
+                },
+                "Property": "monto_pagado"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c8ba3e7ec8ecad0490ed",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_features"
+                  }
+                },
+                "Property": "freight_total"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "497489a24a250eaa3003",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_features"
+                  }
+                },
+                "Property": "dias_retraso_entrega"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "81e136a56bc3de6dbb54",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "order_approved_at"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "69e349691804a7b33478",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "order_delivered_customer_date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2e205facc070175e9807",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "order_delivered_carrier_date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a996249cade039195a81",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "order_estimated_delivery_date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cc12342cd027cb700944",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "numero_productos_distintos"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "57bc0c0220a3046570b0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "order_purchase_timestamp"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

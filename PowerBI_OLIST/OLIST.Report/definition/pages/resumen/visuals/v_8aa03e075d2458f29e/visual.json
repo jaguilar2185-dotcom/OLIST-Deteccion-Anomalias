@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "v_8aa03e075d2458f29e",
+  "position": {
+    "x": 520,
+    "y": 78,
+    "z": 6,
+    "width": 232,
+    "height": 108,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "card",
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Anomalías LOF'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "Anomalías LOF"
+                }
+              },
+              "queryRef": "Scoring.Anomalías LOF",
+              "nativeQueryRef": "Anomalías LOF",
+              "displayName": "Anomalías LOF"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

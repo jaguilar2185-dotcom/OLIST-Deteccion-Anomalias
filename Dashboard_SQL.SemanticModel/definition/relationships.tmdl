@@ -1,0 +1,89 @@
+relationship 85f2e633-3407-4601-a1ba-d60a1c33468e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'gold order_anomaly_features'.order_purchase_timestamp
+	toColumn: LocalDateTable_109dae24-2fdd-4e30-a2fe-526d31e41b1e.Date
+
+relationship 7ef3f398-18c2-4fff-9f3f-8b4a87ee826e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'gold order_anomaly_features'.order_approved_at
+	toColumn: LocalDateTable_0d831c51-600b-4d24-8263-d57a4a0b41b6.Date
+
+relationship 84571c84-f467-4981-aeba-657f014104ed
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'gold order_anomaly_features'.order_delivered_carrier_date
+	toColumn: LocalDateTable_d2b2b440-6bbb-48cc-b330-e8e0a2647c2d.Date
+
+relationship f572ab9e-59d5-454d-be3d-7ec28dbcb169
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'gold order_anomaly_features'.order_delivered_customer_date
+	toColumn: LocalDateTable_1c4e3a5b-b153-4fb0-8966-78c5e3be76fa.Date
+
+relationship 6ae8894e-3363-48a2-b999-b4166b1a776f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'gold order_anomaly_features'.order_estimated_delivery_date
+	toColumn: LocalDateTable_81ddba7b-1912-4be0-9d96-711cd34f8eaf.Date
+
+relationship dc0b329f-7146-4f34-af33-08f254cedb7c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'silver order_items'.shipping_limit_date
+	toColumn: LocalDateTable_4b6d1330-d59e-49a9-89c8-f8df97a2642d.Date
+
+relationship ed7d2771-c06a-4998-9148-a58649b24ad3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'silver orders'.order_purchase_timestamp
+	toColumn: LocalDateTable_fd45e49e-7936-4c07-88f7-c18903ee7c4f.Date
+
+relationship 630259bc-6a07-4a0e-96fa-7fb86aa994fd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'silver orders'.order_approved_at
+	toColumn: LocalDateTable_a6736eac-1312-4c35-861c-b04e8056bf94.Date
+
+relationship 26090c2f-7ead-4439-8e59-f47f78e743b1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'silver orders'.order_delivered_carrier_date
+	toColumn: LocalDateTable_6af66d30-82a4-4bbe-803f-99aa61ccc375.Date
+
+relationship 920040e2-e163-49f2-9cc4-4f9f7914feca
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'silver orders'.order_delivered_customer_date
+	toColumn: LocalDateTable_23e0547c-aa41-4158-8bfa-271bfe0c8841.Date
+
+relationship 594c386c-3817-458f-ac22-5e318c5889ce
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'silver orders'.order_estimated_delivery_date
+	toColumn: LocalDateTable_9271a7a2-66cc-43e6-878d-83bae4c3e730.Date
+
+relationship 42d17eac-d5b5-400a-8a6c-1638a7f62676
+	fromColumn: 'silver order_items'.order_id
+	toColumn: 'silver orders'.order_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship de22d131-79eb-4a16-bdbd-8514270a1c1f
+	fromColumn: 'silver order_payments'.order_id
+	toColumn: 'silver orders'.order_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5f5c4a2e-ba67-437c-a890-899229d01b86
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'silver orders'.customer_id
+	toColumn: 'silver customers'.customer_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship d84cbd30-38a9-336c-5e7b-afd5cfe7f514
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'gold order_anomaly_features'.order_id
+	toColumn: 'gold order_anomaly_scoring'.order_id
+
+relationship 2bd1f253-d0f3-7fa8-36f7-f89bf0c6517e
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'gold order_anomaly_features'.order_id
+	toColumn: 'gold order_anomaly_ml'.order_id
+
+relationship 34dfc06b-8d98-6cb7-a1b3-43409168e574
+	fromColumn: 'silver order_items'.product_id
+	toColumn: 'silver products'.product_id
+

@@ -1,0 +1,633 @@
+{
+  "name": "OLIST",
+  "compatibilityLevel": 1567,
+  "model": {
+    "culture": "es-CR",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "expressions": [
+      {
+        "name": "CarpetaResultados",
+        "kind": "m",
+        "expression": "\"C:\\Users\\USER\\Documents\\ChatGPT\\Minería Datos\\resultados\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+      }
+    ],
+    "tables": [
+      {
+        "name": "Scoring",
+        "columns": [
+          {
+            "name": "order_id",
+            "dataType": "string",
+            "sourceColumn": "order_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "score_if_raw",
+            "dataType": "double",
+            "sourceColumn": "score_if_raw",
+            "summarizeBy": "none",
+            "formatString": "0.0000"
+          },
+          {
+            "name": "score_lof_raw",
+            "dataType": "double",
+            "sourceColumn": "score_lof_raw",
+            "summarizeBy": "none",
+            "formatString": "0.0000"
+          },
+          {
+            "name": "anomaly_score_if",
+            "dataType": "double",
+            "sourceColumn": "anomaly_score_if",
+            "summarizeBy": "none",
+            "formatString": "0.0000"
+          },
+          {
+            "name": "anomaly_score_lof",
+            "dataType": "double",
+            "sourceColumn": "anomaly_score_lof",
+            "summarizeBy": "none",
+            "formatString": "0.0000"
+          },
+          {
+            "name": "anomaly_if",
+            "dataType": "int64",
+            "sourceColumn": "anomaly_if",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "anomaly_lof",
+            "dataType": "int64",
+            "sourceColumn": "anomaly_lof",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "anomaly_score_final",
+            "dataType": "double",
+            "sourceColumn": "anomaly_score_final",
+            "summarizeBy": "none",
+            "formatString": "0.0000"
+          },
+          {
+            "name": "anomalia_consenso",
+            "dataType": "int64",
+            "sourceColumn": "anomalia_consenso",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "prioridad_modelo",
+            "dataType": "string",
+            "sourceColumn": "prioridad_modelo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "variables_revision",
+            "dataType": "string",
+            "sourceColumn": "variables_revision",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "flag_diferencia_pago",
+            "dataType": "int64",
+            "sourceColumn": "flag_diferencia_pago",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "flag_freight_alto",
+            "dataType": "int64",
+            "sourceColumn": "flag_freight_alto",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "flag_monto_negativo",
+            "dataType": "int64",
+            "sourceColumn": "flag_monto_negativo",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Scoring",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Csv.Document(File.Contents(CarpetaResultados & \"\\order_anomaly_scoring.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),",
+                "    Vacios = Table.ReplaceValue(Encabezados, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Encabezados)),",
+                "    Tipos = Table.TransformColumnTypes(Vacios, {{\"order_id\", type text}, {\"score_if_raw\", type number}, {\"score_lof_raw\", type number}, {\"anomaly_score_if\", type number}, {\"anomaly_score_lof\", type number}, {\"anomaly_if\", Int64.Type}, {\"anomaly_lof\", Int64.Type}, {\"anomaly_score_final\", type number}, {\"anomalia_consenso\", Int64.Type}, {\"prioridad_modelo\", type text}, {\"variables_revision\", type text}, {\"flag_diferencia_pago\", Int64.Type}, {\"flag_freight_alto\", Int64.Type}, {\"flag_monto_negativo\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Órdenes",
+            "expression": "COUNTROWS(Scoring)",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Anomalías IF",
+            "expression": "SUM(Scoring[anomaly_if])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Anomalías LOF",
+            "expression": "SUM(Scoring[anomaly_lof])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Consenso",
+            "expression": "SUM(Scoring[anomalia_consenso])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Algún modelo",
+            "expression": "[Anomalías IF] + [Anomalías LOF] - [Consenso]",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Solo IF",
+            "expression": "[Anomalías IF] - [Consenso]",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Solo LOF",
+            "expression": "[Anomalías LOF] - [Consenso]",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Jaccard",
+            "expression": "DIVIDE([Consenso], [Algún modelo], 0)",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Porcentaje marcado",
+            "expression": "DIVIDE([Algún modelo], [Órdenes], 0)",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Diferencia pago",
+            "expression": "SUM(Scoring[flag_diferencia_pago])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Freight alto",
+            "expression": "SUM(Scoring[flag_freight_alto])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Monto negativo",
+            "expression": "SUM(Scoring[flag_monto_negativo])",
+            "formatString": "#,0"
+          }
+        ]
+      },
+      {
+        "name": "Top20",
+        "columns": [
+          {
+            "name": "order_id",
+            "dataType": "string",
+            "sourceColumn": "order_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "score_if_raw",
+            "dataType": "double",
+            "sourceColumn": "score_if_raw",
+            "summarizeBy": "none",
+            "formatString": "0.0000"
+          },
+          {
+            "name": "score_lof_raw",
+            "dataType": "double",
+            "sourceColumn": "score_lof_raw",
+            "summarizeBy": "none",
+            "formatString": "0.0000"
+          },
+          {
+            "name": "anomaly_score_if",
+            "dataType": "double",
+            "sourceColumn": "anomaly_score_if",
+            "summarizeBy": "none",
+            "formatString": "0.0000"
+          },
+          {
+            "name": "anomaly_score_lof",
+            "dataType": "double",
+            "sourceColumn": "anomaly_score_lof",
+            "summarizeBy": "none",
+            "formatString": "0.0000"
+          },
+          {
+            "name": "anomaly_if",
+            "dataType": "int64",
+            "sourceColumn": "anomaly_if",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "anomaly_lof",
+            "dataType": "int64",
+            "sourceColumn": "anomaly_lof",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "anomaly_score_final",
+            "dataType": "double",
+            "sourceColumn": "anomaly_score_final",
+            "summarizeBy": "none",
+            "formatString": "0.0000"
+          },
+          {
+            "name": "anomalia_consenso",
+            "dataType": "int64",
+            "sourceColumn": "anomalia_consenso",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "prioridad_modelo",
+            "dataType": "string",
+            "sourceColumn": "prioridad_modelo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "variables_revision",
+            "dataType": "string",
+            "sourceColumn": "variables_revision",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "flag_diferencia_pago",
+            "dataType": "int64",
+            "sourceColumn": "flag_diferencia_pago",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "flag_freight_alto",
+            "dataType": "int64",
+            "sourceColumn": "flag_freight_alto",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "flag_monto_negativo",
+            "dataType": "int64",
+            "sourceColumn": "flag_monto_negativo",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_status",
+            "dataType": "string",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_purchase_timestamp",
+            "dataType": "string",
+            "sourceColumn": "order_purchase_timestamp",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_approved_at",
+            "dataType": "string",
+            "sourceColumn": "order_approved_at",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_delivered_carrier_date",
+            "dataType": "string",
+            "sourceColumn": "order_delivered_carrier_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_delivered_customer_date",
+            "dataType": "string",
+            "sourceColumn": "order_delivered_customer_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_estimated_delivery_date",
+            "dataType": "string",
+            "sourceColumn": "order_estimated_delivery_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_state",
+            "dataType": "string",
+            "sourceColumn": "customer_state",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_zip_code_prefix",
+            "dataType": "string",
+            "sourceColumn": "customer_zip_code_prefix",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "seller_state_referencia",
+            "dataType": "string",
+            "sourceColumn": "seller_state_referencia",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "seller_zip_referencia",
+            "dataType": "string",
+            "sourceColumn": "seller_zip_referencia",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "precio_productos",
+            "dataType": "double",
+            "sourceColumn": "precio_productos",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "freight_total",
+            "dataType": "double",
+            "sourceColumn": "freight_total",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "monto_total_orden",
+            "dataType": "double",
+            "sourceColumn": "monto_total_orden",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "monto_pagado",
+            "dataType": "double",
+            "sourceColumn": "monto_pagado",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "numero_items",
+            "dataType": "double",
+            "sourceColumn": "numero_items",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "numero_productos_distintos",
+            "dataType": "double",
+            "sourceColumn": "numero_productos_distintos",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "numero_vendedores",
+            "dataType": "double",
+            "sourceColumn": "numero_vendedores",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "numero_pagos",
+            "dataType": "double",
+            "sourceColumn": "numero_pagos",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "tipos_pago_distintos",
+            "dataType": "double",
+            "sourceColumn": "tipos_pago_distintos",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "max_cuotas",
+            "dataType": "double",
+            "sourceColumn": "max_cuotas",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "peso_total_g",
+            "dataType": "double",
+            "sourceColumn": "peso_total_g",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "volumen_total_cm3",
+            "dataType": "double",
+            "sourceColumn": "volumen_total_cm3",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "proporcion_freight_precio",
+            "dataType": "double",
+            "sourceColumn": "proporcion_freight_precio",
+            "summarizeBy": "none",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "horas_compra_aprobacion",
+            "dataType": "double",
+            "sourceColumn": "horas_compra_aprobacion",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "horas_compra_transportista",
+            "dataType": "double",
+            "sourceColumn": "horas_compra_transportista",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "horas_transporte_cliente",
+            "dataType": "double",
+            "sourceColumn": "horas_transporte_cliente",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "horas_compra_entrega",
+            "dataType": "double",
+            "sourceColumn": "horas_compra_entrega",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "dias_retraso_entrega",
+            "dataType": "double",
+            "sourceColumn": "dias_retraso_entrega",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "vendedor_otro_estado",
+            "dataType": "double",
+            "sourceColumn": "vendedor_otro_estado",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Top20",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Csv.Document(File.Contents(CarpetaResultados & \"\\top20_explicado.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),",
+                "    Vacios = Table.ReplaceValue(Encabezados, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Encabezados)),",
+                "    Tipos = Table.TransformColumnTypes(Vacios, {{\"order_id\", type text}, {\"score_if_raw\", type number}, {\"score_lof_raw\", type number}, {\"anomaly_score_if\", type number}, {\"anomaly_score_lof\", type number}, {\"anomaly_if\", Int64.Type}, {\"anomaly_lof\", Int64.Type}, {\"anomaly_score_final\", type number}, {\"anomalia_consenso\", Int64.Type}, {\"prioridad_modelo\", type text}, {\"variables_revision\", type text}, {\"flag_diferencia_pago\", Int64.Type}, {\"flag_freight_alto\", Int64.Type}, {\"flag_monto_negativo\", Int64.Type}, {\"customer_id\", type text}, {\"order_status\", type text}, {\"order_purchase_timestamp\", type text}, {\"order_approved_at\", type text}, {\"order_delivered_carrier_date\", type text}, {\"order_delivered_customer_date\", type text}, {\"order_estimated_delivery_date\", type text}, {\"customer_state\", type text}, {\"customer_zip_code_prefix\", type text}, {\"seller_state_referencia\", type text}, {\"seller_zip_referencia\", type text}, {\"precio_productos\", type number}, {\"freight_total\", type number}, {\"monto_total_orden\", type number}, {\"monto_pagado\", type number}, {\"numero_items\", type number}, {\"numero_productos_distintos\", type number}, {\"numero_vendedores\", type number}, {\"numero_pagos\", type number}, {\"tipos_pago_distintos\", type number}, {\"max_cuotas\", type number}, {\"peso_total_g\", type number}, {\"volumen_total_cm3\", type number}, {\"proporcion_freight_precio\", type number}, {\"horas_compra_aprobacion\", type number}, {\"horas_compra_transportista\", type number}, {\"horas_transporte_cliente\", type number}, {\"horas_compra_entrega\", type number}, {\"dias_retraso_entrega\", type number}, {\"vendedor_otro_estado\", type number}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Estabilidad",
+        "columns": [
+          {
+            "name": "method",
+            "dataType": "string",
+            "sourceColumn": "method",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "parameter",
+            "dataType": "string",
+            "sourceColumn": "parameter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "value",
+            "dataType": "int64",
+            "sourceColumn": "value",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "jaccard_base",
+            "dataType": "double",
+            "sourceColumn": "jaccard_base",
+            "summarizeBy": "none",
+            "formatString": "0.0%"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Estabilidad",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Csv.Document(File.Contents(CarpetaResultados & \"\\estabilidad.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),",
+                "    Vacios = Table.ReplaceValue(Encabezados, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Encabezados)),",
+                "    Tipos = Table.TransformColumnTypes(Vacios, {{\"method\", type text}, {\"parameter\", type text}, {\"value\", Int64.Type}, {\"jaccard_base\", type number}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Sensibilidad",
+        "columns": [
+          {
+            "name": "contamination",
+            "dataType": "double",
+            "sourceColumn": "contamination",
+            "summarizeBy": "none",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "if_count",
+            "dataType": "int64",
+            "sourceColumn": "if_count",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "lof_count",
+            "dataType": "int64",
+            "sourceColumn": "lof_count",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "jaccard_methods",
+            "dataType": "double",
+            "sourceColumn": "jaccard_methods",
+            "summarizeBy": "none",
+            "formatString": "0.0%"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Sensibilidad",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Csv.Document(File.Contents(CarpetaResultados & \"\\sensibilidad_umbral.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),",
+                "    Vacios = Table.ReplaceValue(Encabezados, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Encabezados)),",
+                "    Tipos = Table.TransformColumnTypes(Vacios, {{\"contamination\", type number}, {\"if_count\", Int64.Type}, {\"lof_count\", Int64.Type}, {\"jaccard_methods\", type number}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "Scoring_Top20",
+        "fromTable": "Top20",
+        "fromColumn": "order_id",
+        "fromCardinality": "many",
+        "toTable": "Scoring",
+        "toColumn": "order_id",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"CarpetaResultados\", \"Scoring\", \"Top20\", \"Estabilidad\", \"Sensibilidad\"]"
+      }
+    ]
+  }
+}

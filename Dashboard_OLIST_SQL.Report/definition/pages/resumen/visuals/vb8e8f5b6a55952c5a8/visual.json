@@ -1,0 +1,130 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "vb8e8f5b6a55952c5a8",
+  "position": {
+    "x": 23.877415056628912,
+    "y": 221.71885409726849,
+    "z": 5000,
+    "height": 325.41505662891404,
+    "width": 360.890073284477,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "prioridad_modelo"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.prioridad_modelo",
+              "nativeQueryRef": "Prioridad",
+              "active": true,
+              "displayName": "Prioridad"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_scoring"
+                        }
+                      },
+                      "Property": "order_id"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.order_id5",
+              "nativeQueryRef": "Órdenes",
+              "displayName": "Órdenes"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Órdenes por prioridad'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

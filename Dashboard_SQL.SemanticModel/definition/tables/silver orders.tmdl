@@ -1,0 +1,108 @@
+table 'silver orders'
+	lineageTag: b2f198e9-bf06-47fd-8d16-0987c4b9d197
+
+	column order_id
+		dataType: string
+		lineageTag: ef6a4822-e950-43b2-9ff4-c6734033474a
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 36de77e6-89a1-434f-8814-5f8eb7ce3f32
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_status
+		dataType: string
+		lineageTag: 50b4d731-b664-4951-8c9d-6f6084918ac7
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_purchase_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7d8ab478-5546-44de-80f8-b5c069669945
+		summarizeBy: none
+		sourceColumn: order_purchase_timestamp
+
+		variation Variation
+			isDefault
+			relationship: ed7d2771-c06a-4998-9148-a58649b24ad3
+			defaultHierarchy: LocalDateTable_fd45e49e-7936-4c07-88f7-c18903ee7c4f.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_approved_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d5381bb1-9581-463c-a92e-955cf08df9bc
+		summarizeBy: none
+		sourceColumn: order_approved_at
+
+		variation Variation
+			isDefault
+			relationship: 630259bc-6a07-4a0e-96fa-7fb86aa994fd
+			defaultHierarchy: LocalDateTable_a6736eac-1312-4c35-861c-b04e8056bf94.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_delivered_carrier_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: be609a76-e421-4ffe-bfeb-6dc1b45b1f37
+		summarizeBy: none
+		sourceColumn: order_delivered_carrier_date
+
+		variation Variation
+			isDefault
+			relationship: 26090c2f-7ead-4439-8e59-f47f78e743b1
+			defaultHierarchy: LocalDateTable_6af66d30-82a4-4bbe-803f-99aa61ccc375.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_delivered_customer_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 80664ef5-5498-4384-8fff-2a2dfd583aaf
+		summarizeBy: none
+		sourceColumn: order_delivered_customer_date
+
+		variation Variation
+			isDefault
+			relationship: 920040e2-e163-49f2-9cc4-4f9f7914feca
+			defaultHierarchy: LocalDateTable_23e0547c-aa41-4158-8bfa-271bfe0c8841.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_estimated_delivery_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 59fa2a10-e516-498e-9a5a-ba2a7840423b
+		summarizeBy: none
+		sourceColumn: order_estimated_delivery_date
+
+		variation Variation
+			isDefault
+			relationship: 594c386c-3817-458f-ac22-5e318c5889ce
+			defaultHierarchy: LocalDateTable_9271a7a2-66cc-43e6-878d-83bae4c3e730.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'silver orders' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("JUAN", "OLIST_DW"),
+				  #"Navegación 1" = Origen{[Schema = "silver", Item = "orders"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+

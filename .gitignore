@@ -1,31 +1,11 @@
-# Configuración local y credenciales
-config_proyecto.json
-.env
-.env.*
-!.env.example
-*.pem
-*.key
-# Entornos y cachés
+.powerbi_deps/
+node_modules/
 __pycache__/
 *.py[cod]
-.venv/
-venv/
-node_modules/
 **/.pbi/
 **/.platform
-# Datos y resultados generados
-datos/*
-!datos/README.md
-ejecuciones/
-resultados/
-resultados_proyecto/
 outputs/
-ULTIMA_EJECUCION.txt
-*.pbix
-*.abf
-*.bak
-*.mdf
-*.ldf
-*.log
-.DS_Store
-Thumbs.db
+.env
+.venv/
+resultados/order_anomaly_scoring.csv
+resultados/reporte_input.json

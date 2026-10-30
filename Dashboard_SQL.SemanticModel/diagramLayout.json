@@ -1,0 +1,139 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 846.50310610990232,
+            "y": 575.48840315809866
+          },
+          "nodeIndex": "gold order_anomaly_features",
+          "nodeLineageTag": "1eb7098d-42bb-4bbd-abbd-f4395b3e0e88",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 1165.5031061099023,
+            "y": 585.48840315809866
+          },
+          "nodeIndex": "gold order_anomaly_ml",
+          "nodeLineageTag": "631a2ee5-9ef8-430e-8e8f-26e0cf87d9f1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1457.5031061099023,
+            "y": 598.48840315809866
+          },
+          "nodeIndex": "gold order_anomaly_scoring",
+          "nodeLineageTag": "6bfd6c68-19ca-49b6-b4fc-e92660a6505d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 528.97680631619733
+          },
+          "nodeIndex": "silver customers",
+          "nodeLineageTag": "3d2530f5-7eb2-483c-9fea-bf9d7c9ee75f",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 86.319370692371592,
+            "y": 0
+          },
+          "nodeIndex": "silver order_items",
+          "nodeLineageTag": "68223aa5-b136-4ef4-a2a9-d3f829eb45ba",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 622.50310610990232,
+            "y": 218.89312351603309
+          },
+          "nodeIndex": "silver order_payments",
+          "nodeLineageTag": "55903787-d15b-4953-8bd2-3605370c463e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 337.0042240514274,
+            "y": 251.31274356091023
+          },
+          "nodeIndex": "silver orders",
+          "nodeLineageTag": "b2f198e9-bf06-47fd-8d16-0987c4b9d197",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 890.50310610990232,
+            "y": 27.488403158098663
+          },
+          "nodeIndex": "silver products",
+          "nodeLineageTag": "aec183a8-ffbf-4dac-8c4a-d82998036c0f",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1992.5031061099023,
+            "y": 301.48840315809866
+          },
+          "nodeIndex": "silver sellers",
+          "nodeLineageTag": "e2a30f62-8727-41a0-ba27-4e761df95ba6",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 8
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

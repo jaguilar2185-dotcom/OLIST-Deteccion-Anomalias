@@ -1,0 +1,191 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "v_b14ffcc704a657f69c",
+  "position": {
+    "x": 24,
+    "y": 238,
+    "z": 15,
+    "width": 1228,
+    "height": 520,
+    "tabOrder": 15
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Todas las órdenes · score descendente'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "order_id"
+                }
+              },
+              "queryRef": "Scoring.order_id",
+              "nativeQueryRef": "order_id",
+              "displayName": "Orden"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "anomaly_score_final"
+                }
+              },
+              "queryRef": "Scoring.anomaly_score_final",
+              "nativeQueryRef": "anomaly_score_final",
+              "displayName": "Score final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "anomaly_score_if"
+                }
+              },
+              "queryRef": "Scoring.anomaly_score_if",
+              "nativeQueryRef": "anomaly_score_if",
+              "displayName": "Score IF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "anomaly_score_lof"
+                }
+              },
+              "queryRef": "Scoring.anomaly_score_lof",
+              "nativeQueryRef": "anomaly_score_lof",
+              "displayName": "Score LOF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "prioridad_modelo"
+                }
+              },
+              "queryRef": "Scoring.prioridad_modelo",
+              "nativeQueryRef": "prioridad_modelo",
+              "displayName": "Prioridad"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "flag_diferencia_pago"
+                }
+              },
+              "queryRef": "Scoring.flag_diferencia_pago",
+              "nativeQueryRef": "flag_diferencia_pago",
+              "displayName": "Diferencia pago"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "flag_freight_alto"
+                }
+              },
+              "queryRef": "Scoring.flag_freight_alto",
+              "nativeQueryRef": "flag_freight_alto",
+              "displayName": "Freight alto"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Scoring"
+                    }
+                  },
+                  "Property": "variables_revision"
+                }
+              },
+              "queryRef": "Scoring.variables_revision",
+              "nativeQueryRef": "variables_revision",
+              "displayName": "Variables para revisión"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Scoring"
+                  }
+                },
+                "Property": "anomaly_score_final"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    }
+  }
+}
