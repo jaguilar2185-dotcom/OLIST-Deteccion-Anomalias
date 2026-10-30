@@ -1,0 +1,7 @@
+{
+  "servidor": "TU_SERVIDOR",
+  "umbral": 0.02,
+  "justificacion": "Corte exploratorio del 2% por modelo; contrastar con capacidad de revision y evidencia de casos reales.",
+  "geolocalizacion": "datos/olist_geolocation_dataset.csv",
+  "publicar_sql": false
+}

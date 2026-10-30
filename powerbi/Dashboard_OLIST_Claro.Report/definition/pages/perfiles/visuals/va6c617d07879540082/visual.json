@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "va6c617d07879540082",
+  "position": {
+    "x": 24,
+    "y": 12,
+    "width": 1232,
+    "height": 48,
+    "z": 2,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "OLIST  /  Perfiles de anomalía",
+                    "textStyle": {
+                      "fontSize": "25pt",
+                      "fontWeight": "bold",
+                      "color": "#12314B"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

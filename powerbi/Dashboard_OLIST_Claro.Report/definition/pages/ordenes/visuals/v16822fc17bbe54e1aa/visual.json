@@ -1,0 +1,212 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "v16822fc17bbe54e1aa",
+  "position": {
+    "x": 24,
+    "y": 308,
+    "z": 14,
+    "height": 528,
+    "width": 1232,
+    "tabOrder": 14
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "order_id"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.order_id",
+              "nativeQueryRef": "Orden",
+              "displayName": "Orden"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "anomaly_score_final"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.anomaly_score_final",
+              "nativeQueryRef": "Puntaje final",
+              "displayName": "Puntaje final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "anomaly_score_if"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.anomaly_score_if",
+              "nativeQueryRef": "Puntaje IF",
+              "displayName": "Puntaje IF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "anomaly_score_lof"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.anomaly_score_lof",
+              "nativeQueryRef": "Puntaje LOF",
+              "displayName": "Puntaje LOF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "prioridad_modelo"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.prioridad_modelo",
+              "nativeQueryRef": "Prioridad",
+              "displayName": "Prioridad"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "nivel_rareza"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.nivel_rareza",
+              "nativeQueryRef": "Rareza",
+              "displayName": "Rareza"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "perfil_anomalia"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.perfil_anomalia",
+              "nativeQueryRef": "Perfil de anomalía",
+              "displayName": "Perfil de anomalía"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_scoring"
+                  }
+                },
+                "Property": "anomaly_score_final"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Órdenes de mayor a menor puntaje final'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

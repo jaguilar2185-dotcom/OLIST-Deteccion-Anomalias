@@ -1,0 +1,47 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "n70f764be72975471b4",
+  "position": {
+    "x": 24,
+    "y": 64,
+    "z": 100,
+    "height": 66,
+    "width": 1232,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "01  /  PANORAMA GENERAL",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#526579"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Compara las detecciones y conoce cómo se distribuyen las órdenes analizadas.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#526579"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

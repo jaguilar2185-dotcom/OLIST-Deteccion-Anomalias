@@ -1,0 +1,97 @@
+table 'silver products'
+	lineageTag: aec183a8-ffbf-4dac-8c4a-d82998036c0f
+
+	column product_id
+		dataType: string
+		lineageTag: c9d0ffd5-8515-44c7-a0b9-be7f8432069b
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_name
+		dataType: string
+		lineageTag: ebffc251-3d39-4b1d-a763-e7d523c03759
+		summarizeBy: none
+		sourceColumn: product_category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name_lenght
+		dataType: int64
+		formatString: 0
+		lineageTag: 834e4edd-5d21-499a-9217-39ab66931063
+		summarizeBy: sum
+		sourceColumn: product_name_lenght
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_description_lenght
+		dataType: int64
+		formatString: 0
+		lineageTag: 9bca76bc-9300-481f-bde8-8d4de69115e7
+		summarizeBy: sum
+		sourceColumn: product_description_lenght
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_photos_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 069d2d1c-a400-4db9-8d15-b2201f3cdca3
+		summarizeBy: sum
+		sourceColumn: product_photos_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_weight_g
+		dataType: double
+		lineageTag: b51c716b-9e8b-42c7-97cb-768e3a9dd46d
+		summarizeBy: sum
+		sourceColumn: product_weight_g
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_length_cm
+		dataType: double
+		lineageTag: d45dbe0c-bf4d-4954-9358-4ffc457e02cb
+		summarizeBy: sum
+		sourceColumn: product_length_cm
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_height_cm
+		dataType: double
+		lineageTag: 152930f3-836c-449b-8867-3f539f8131a1
+		summarizeBy: sum
+		sourceColumn: product_height_cm
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_width_cm
+		dataType: double
+		lineageTag: bb080b6e-3d2c-41e8-8bff-cc488b261e87
+		summarizeBy: sum
+		sourceColumn: product_width_cm
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'silver products' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("TU_SERVIDOR", "OLIST_DW"),
+				  #"Navegación 1" = Origen{[Schema = "silver", Item = "products"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+

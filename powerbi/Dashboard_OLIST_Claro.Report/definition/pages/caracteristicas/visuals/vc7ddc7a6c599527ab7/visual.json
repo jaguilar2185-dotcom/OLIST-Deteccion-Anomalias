@@ -1,0 +1,336 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "vc7ddc7a6c599527ab7",
+  "position": {
+    "x": 24,
+    "y": 626,
+    "z": 23,
+    "height": 210,
+    "width": 1232,
+    "tabOrder": 23
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "order_id"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.order_id",
+              "nativeQueryRef": "Orden",
+              "displayName": "Orden"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "order_status"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.order_status",
+              "nativeQueryRef": "Estado",
+              "displayName": "Estado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "monto_total_orden"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.monto_total_orden",
+              "nativeQueryRef": "Total orden (BRL)",
+              "displayName": "Total orden (BRL)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "freight_total"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.freight_total",
+              "nativeQueryRef": "Envío (BRL)",
+              "displayName": "Envío (BRL)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "numero_items"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.numero_items",
+              "nativeQueryRef": "Artículos",
+              "displayName": "Artículos"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "horas_compra_entrega"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.horas_compra_entrega",
+              "nativeQueryRef": "Compra a entrega (h)",
+              "displayName": "Compra a entrega (h)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_features"
+                    }
+                  },
+                  "Property": "dias_retraso_entrega"
+                }
+              },
+              "queryRef": "gold order_anomaly_features.dias_retraso_entrega",
+              "nativeQueryRef": "Retraso (días)",
+              "displayName": "Retraso (días)"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Detalle de las órdenes · según los filtros seleccionados'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3dd99a012c1b0299320d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "order_id"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "g",
+              "Entity": "gold order_anomaly_features",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "g"
+                          }
+                        },
+                        "Property": "order_id"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'59798edc300f7563a9bdf18b2740def9'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "a92a8a5bcc2c591bbb45",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "order_status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "db042dafd69d3b270be9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "monto_total_orden"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "acd0345760c7e0a47bd2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "freight_total"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "87c715b9a69877594dda",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "numero_items"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c3e4e6978b456d2e4d28",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "horas_compra_entrega"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3319a8bb0273b8a1069c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_features"
+              }
+            },
+            "Property": "dias_retraso_entrega"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

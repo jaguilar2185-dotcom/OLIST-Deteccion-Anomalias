@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "v6ed3b7390c01531a9b",
+  "position": {
+    "x": 24,
+    "y": 12,
+    "width": 1232,
+    "height": 48,
+    "z": 3,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "OLIST  /  Importes y logística",
+                    "textStyle": {
+                      "fontSize": "25pt",
+                      "fontWeight": "bold",
+                      "color": "#12314B"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

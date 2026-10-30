@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "n162ff47270415351b6",
+  "position": {
+    "x": 24,
+    "y": 897,
+    "width": 1232,
+    "height": 38,
+    "z": 100,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Si solo ves una etapa, revisa el filtro superior y usa su borrador para volver a todas. Esta página no está vinculada por orden con los filtros de anomalías.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#526579",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

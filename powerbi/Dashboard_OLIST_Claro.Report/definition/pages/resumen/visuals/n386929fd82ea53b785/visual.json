@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "n386929fd82ea53b785",
+  "position": {
+    "x": 24,
+    "y": 855,
+    "width": 1232,
+    "height": 65,
+    "z": 100,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Cómo leerlo: ALTA y MEDIA son prioridades de revisión. El consenso significa coincidencia entre modelos; no demuestra fraude ni mide precisión.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#526579",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

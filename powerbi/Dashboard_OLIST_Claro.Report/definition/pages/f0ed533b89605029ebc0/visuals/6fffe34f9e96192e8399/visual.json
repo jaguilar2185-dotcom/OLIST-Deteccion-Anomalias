@@ -1,0 +1,385 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "6fffe34f9e96192e8399",
+  "position": {
+    "x": 9.8092904070440419,
+    "y": 0,
+    "z": 0,
+    "height": 1066.2698672456872,
+    "width": 1794.1192154483551,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "order_id"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.order_id",
+              "nativeQueryRef": "order_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "perfil_anomalia"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.perfil_anomalia",
+              "nativeQueryRef": "perfil_anomalia"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "nivel_rareza"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.nivel_rareza",
+              "nativeQueryRef": "nivel_rareza"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "prioridad_modelo"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.prioridad_modelo",
+              "nativeQueryRef": "prioridad_modelo"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_scoring"
+                        }
+                      },
+                      "Property": "anomaly_score_lof"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_scoring.anomaly_score_lof)",
+              "nativeQueryRef": "Suma de anomaly_score_lof"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_scoring"
+                        }
+                      },
+                      "Property": "anomaly_score_if"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_scoring.anomaly_score_if)",
+              "nativeQueryRef": "Suma de anomaly_score_if"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_scoring"
+                        }
+                      },
+                      "Property": "anomaly_lof"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_scoring.anomaly_lof)",
+              "nativeQueryRef": "Suma de anomaly_lof"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_scoring"
+                        }
+                      },
+                      "Property": "anomaly_if"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_scoring.anomaly_if)",
+              "nativeQueryRef": "Suma de anomaly_if"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_scoring"
+                        }
+                      },
+                      "Property": "anomaly_score_final"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_scoring.anomaly_score_final)",
+              "nativeQueryRef": "Suma de anomaly_score_final"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold order_anomaly_scoring"
+                        }
+                      },
+                      "Property": "anomalia_consenso"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold order_anomaly_scoring.anomalia_consenso)",
+              "nativeQueryRef": "Suma de anomalia_consenso"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_scoring"
+                  }
+                },
+                "Property": "prioridad_modelo"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b57f14dfab28c0cbb06d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_scoring"
+              }
+            },
+            "Property": "order_id"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6c6447e19de6e6835411",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_scoring"
+              }
+            },
+            "Property": "perfil_anomalia"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "756c8acdc499c80c3ed7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_scoring"
+              }
+            },
+            "Property": "nivel_rareza"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1d1b275f04d01beb094a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_scoring"
+              }
+            },
+            "Property": "prioridad_modelo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "137ed98026330824b09e",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_scoring"
+                  }
+                },
+                "Property": "anomaly_score_lof"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "200cac1659285dcc6d91",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_scoring"
+                  }
+                },
+                "Property": "anomaly_score_if"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4dc23b460bb4d930ca94",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_scoring"
+                  }
+                },
+                "Property": "anomaly_lof"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2ee27dea0d9315653b78",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_scoring"
+                  }
+                },
+                "Property": "anomaly_if"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4f08f2045c29710742a6",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_scoring"
+                  }
+                },
+                "Property": "anomaly_score_final"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bdc4ce4d68e80b5b7001",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold order_anomaly_scoring"
+                  }
+                },
+                "Property": "anomalia_consenso"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "n0c7e2e7f8bd1504e84",
+  "position": {
+    "x": 24,
+    "y": 580,
+    "width": 1232,
+    "height": 44,
+    "z": 100,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Entrega: horas desde la compra. Retraso: días respecto a lo estimado; negativo = anticipada, 0 = mismo día, positivo = tardía. Vacío = dato no disponible.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#526579",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

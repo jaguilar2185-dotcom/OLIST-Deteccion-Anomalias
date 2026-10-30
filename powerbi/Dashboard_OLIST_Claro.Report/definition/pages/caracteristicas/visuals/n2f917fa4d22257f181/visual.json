@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "n2f917fa4d22257f181",
+  "position": {
+    "x": 24,
+    "y": 846,
+    "width": 1232,
+    "height": 48,
+    "z": 100,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Etapas: created = creada · approved = aprobada · invoiced = facturada · processing = en preparación · shipped = enviada · delivered = entregada · canceled = cancelada · unavailable = no disponible.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#526579",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

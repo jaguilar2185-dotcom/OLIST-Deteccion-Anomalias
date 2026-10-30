@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "n5ba5bb0bd222509a93",
+  "position": {
+    "x": 24,
+    "y": 855,
+    "width": 1232,
+    "height": 65,
+    "z": 100,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Cada barra cuenta una combinación completa de motivos. Los perfiles describen características para investigar; no explican una causa ni prueban un error.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#526579",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

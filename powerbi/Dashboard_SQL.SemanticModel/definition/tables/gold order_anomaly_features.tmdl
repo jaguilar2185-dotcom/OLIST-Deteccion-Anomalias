@@ -1,0 +1,318 @@
+table 'gold order_anomaly_features'
+	lineageTag: 1eb7098d-42bb-4bbd-abbd-f4395b3e0e88
+
+	column order_id
+		dataType: string
+		lineageTag: 0f23dcc4-42ea-42f9-9e43-6c2c49c6da53
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 0c3cde8b-629e-4fda-91f5-7929f0340878
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_status
+		dataType: string
+		lineageTag: 065b0910-c576-43a0-b2fc-3e203a0bb550
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_purchase_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d9447311-1c89-4675-836f-2ee48c9028ad
+		summarizeBy: none
+		sourceColumn: order_purchase_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 85f2e633-3407-4601-a1ba-d60a1c33468e
+			defaultHierarchy: LocalDateTable_109dae24-2fdd-4e30-a2fe-526d31e41b1e.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_approved_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f98f40ec-8ea8-4d59-9029-3a7cd39eda68
+		summarizeBy: none
+		sourceColumn: order_approved_at
+
+		variation Variation
+			isDefault
+			relationship: 7ef3f398-18c2-4fff-9f3f-8b4a87ee826e
+			defaultHierarchy: LocalDateTable_0d831c51-600b-4d24-8263-d57a4a0b41b6.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_delivered_carrier_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0a4bdb1d-e2a9-43d1-9188-e9a2962a9f0d
+		summarizeBy: none
+		sourceColumn: order_delivered_carrier_date
+
+		variation Variation
+			isDefault
+			relationship: 84571c84-f467-4981-aeba-657f014104ed
+			defaultHierarchy: LocalDateTable_d2b2b440-6bbb-48cc-b330-e8e0a2647c2d.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_delivered_customer_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8713413b-cbca-4c60-b316-37dd03f7f0cf
+		summarizeBy: none
+		sourceColumn: order_delivered_customer_date
+
+		variation Variation
+			isDefault
+			relationship: f572ab9e-59d5-454d-be3d-7ec28dbcb169
+			defaultHierarchy: LocalDateTable_1c4e3a5b-b153-4fb0-8966-78c5e3be76fa.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_estimated_delivery_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 611e4e16-585c-459b-868b-72300bdc7dba
+		summarizeBy: none
+		sourceColumn: order_estimated_delivery_date
+
+		variation Variation
+			isDefault
+			relationship: 6ae8894e-3363-48a2-b999-b4166b1a776f
+			defaultHierarchy: LocalDateTable_81ddba7b-1912-4be0-9d96-711cd34f8eaf.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_state
+		dataType: string
+		lineageTag: a073c535-48c3-4e13-91d5-dabdafc7400d
+		summarizeBy: none
+		sourceColumn: customer_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_zip_code_prefix
+		dataType: string
+		lineageTag: 4eb5b28b-fe10-4971-a109-f0050f808d9b
+		summarizeBy: none
+		sourceColumn: customer_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_state_referencia
+		dataType: string
+		lineageTag: 8c30170b-db76-442b-b8a5-fdd40e1e918f
+		summarizeBy: none
+		sourceColumn: seller_state_referencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_zip_referencia
+		dataType: string
+		lineageTag: 8c88cc3a-2b51-4f8a-9153-ef325ce93ac3
+		summarizeBy: none
+		sourceColumn: seller_zip_referencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_productos
+		dataType: double
+		lineageTag: a23ba96c-543d-4040-9dc1-1c80361df204
+		summarizeBy: sum
+		sourceColumn: precio_productos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column freight_total
+		dataType: double
+		lineageTag: b9ad41c2-aeb7-489f-9f23-8f7f95a96657
+		summarizeBy: sum
+		sourceColumn: freight_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monto_total_orden
+		dataType: double
+		lineageTag: 752bedce-8825-45d8-ab00-136511cb98c8
+		summarizeBy: sum
+		sourceColumn: monto_total_orden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monto_pagado
+		dataType: double
+		lineageTag: 61db05a8-55fd-4afa-8c2b-96bd96f44f17
+		summarizeBy: sum
+		sourceColumn: monto_pagado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column numero_items
+		dataType: int64
+		formatString: 0
+		lineageTag: 0370f5b8-8fda-469f-b852-3bbb3105607f
+		summarizeBy: sum
+		sourceColumn: numero_items
+
+		annotation SummarizationSetBy = Automatic
+
+	column numero_productos_distintos
+		dataType: int64
+		formatString: 0
+		lineageTag: 78163fb8-296c-422a-9c74-fb2d2d7282a7
+		summarizeBy: sum
+		sourceColumn: numero_productos_distintos
+
+		annotation SummarizationSetBy = Automatic
+
+	column numero_vendedores
+		dataType: int64
+		formatString: 0
+		lineageTag: f8fba8e3-a147-4de0-9d90-44b6ee898e2b
+		summarizeBy: sum
+		sourceColumn: numero_vendedores
+
+		annotation SummarizationSetBy = Automatic
+
+	column numero_pagos
+		dataType: int64
+		formatString: 0
+		lineageTag: fb192410-d7c0-4e50-99ab-b28964d9fcf6
+		summarizeBy: sum
+		sourceColumn: numero_pagos
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipos_pago_distintos
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a250db7-af9a-4d54-8f85-5c59a1c7f32e
+		summarizeBy: sum
+		sourceColumn: tipos_pago_distintos
+
+		annotation SummarizationSetBy = Automatic
+
+	column max_cuotas
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a93490a-a186-43e3-ba42-0114e1993bd0
+		summarizeBy: sum
+		sourceColumn: max_cuotas
+
+		annotation SummarizationSetBy = Automatic
+
+	column peso_total_g
+		dataType: double
+		lineageTag: 554653ea-4561-4b72-8df2-8a45c0708987
+		summarizeBy: sum
+		sourceColumn: peso_total_g
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column volumen_total_cm3
+		dataType: double
+		lineageTag: 16e0c4da-314c-4934-84d6-286d88e387e4
+		summarizeBy: sum
+		sourceColumn: volumen_total_cm3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column proporcion_freight_precio
+		dataType: double
+		lineageTag: 8e5bd793-8ae8-4e45-b55a-8b74f8ffb88b
+		summarizeBy: sum
+		sourceColumn: proporcion_freight_precio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column horas_compra_aprobacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ced82b7-c8aa-45e9-bad4-fdbfab33f39c
+		summarizeBy: sum
+		sourceColumn: horas_compra_aprobacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column horas_compra_transportista
+		dataType: int64
+		formatString: 0
+		lineageTag: e99af2f3-be6e-48a9-8a35-19f16478e886
+		summarizeBy: sum
+		sourceColumn: horas_compra_transportista
+
+		annotation SummarizationSetBy = Automatic
+
+	column horas_transporte_cliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 9873f309-af02-489a-ae16-0919cee75f77
+		summarizeBy: sum
+		sourceColumn: horas_transporte_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column horas_compra_entrega
+		dataType: int64
+		formatString: 0
+		lineageTag: 9613c53c-3b9b-42b7-b27f-fe23c0abce43
+		summarizeBy: sum
+		sourceColumn: horas_compra_entrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column dias_retraso_entrega
+		dataType: int64
+		formatString: 0
+		lineageTag: 146e0093-add6-4754-bdff-6d3703f6fd9a
+		summarizeBy: sum
+		sourceColumn: dias_retraso_entrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column vendedor_otro_estado
+		dataType: int64
+		formatString: 0
+		lineageTag: 162d7a8c-ee72-4bbe-b6e0-09912e01bea1
+		summarizeBy: sum
+		sourceColumn: vendedor_otro_estado
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'gold order_anomaly_features' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("TU_SERVIDOR", "OLIST_DW"),
+				  #"Navegación 1" = Origen{[Schema = "gold", Item = "order_anomaly_features"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+

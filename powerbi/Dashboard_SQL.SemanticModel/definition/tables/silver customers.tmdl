@@ -1,0 +1,54 @@
+table 'silver customers'
+	lineageTag: 3d2530f5-7eb2-483c-9fea-bf9d7c9ee75f
+
+	column customer_id
+		dataType: string
+		lineageTag: c62ac9d0-8ec3-4d1d-9c36-7d66405112d4
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: 2f8f489a-0681-4ab0-ac3c-695c6fa2e039
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_zip_code_prefix
+		dataType: string
+		lineageTag: 78d307d7-e956-4aff-8266-caeeef7d2add
+		summarizeBy: none
+		sourceColumn: customer_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_city
+		dataType: string
+		lineageTag: 5fe774d2-7d67-4045-980e-7ee6266b637c
+		summarizeBy: none
+		sourceColumn: customer_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_state
+		dataType: string
+		lineageTag: e321eb13-e465-4133-8588-b92f4bf498dc
+		summarizeBy: none
+		sourceColumn: customer_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'silver customers' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("TU_SERVIDOR", "OLIST_DW"),
+				  #"Navegación 1" = Origen{[Schema = "silver", Item = "customers"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+

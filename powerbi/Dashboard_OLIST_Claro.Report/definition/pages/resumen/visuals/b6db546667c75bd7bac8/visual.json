@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "b6db546667c75bd7bac8",
+  "position": {
+    "x": 631.659960026649,
+    "y": 0,
+    "z": 102,
+    "height": 73.747101932045311,
+    "width": 299.79800133244504,
+    "tabOrder": 102
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold order_anomaly_scoring"
+                    }
+                  },
+                  "Property": "anomaly_lof"
+                }
+              },
+              "queryRef": "gold order_anomaly_scoring.anomaly_lof",
+              "nativeQueryRef": "LOF",
+              "active": true,
+              "displayName": "LOF"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "82a6f14f1a0628dc0080",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold order_anomaly_scoring"
+              }
+            },
+            "Property": "anomaly_lof"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

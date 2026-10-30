@@ -1,0 +1,103 @@
+table 'gold order_anomaly_scoring'
+	lineageTag: 6bfd6c68-19ca-49b6-b4fc-e92660a6505d
+
+	column order_id
+		dataType: string
+		lineageTag: 14f835a2-52c2-4117-a522-92a16768c057
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column anomaly_score_if
+		dataType: double
+		lineageTag: 52d3e39f-6387-4cd9-b9d7-52ca7d0914df
+		summarizeBy: sum
+		sourceColumn: anomaly_score_if
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column anomaly_score_lof
+		dataType: double
+		lineageTag: 0cb2b0d6-7d7c-498a-bc33-6b625a887deb
+		summarizeBy: sum
+		sourceColumn: anomaly_score_lof
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column anomaly_score_final
+		dataType: double
+		lineageTag: 85d43231-7d0a-4df9-817d-4cc64602af7b
+		summarizeBy: sum
+		sourceColumn: anomaly_score_final
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column anomaly_if
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a300380-f6c2-4b67-8bf7-615be66e300f
+		summarizeBy: sum
+		sourceColumn: anomaly_if
+
+		annotation SummarizationSetBy = Automatic
+
+	column anomaly_lof
+		dataType: int64
+		formatString: 0
+		lineageTag: 5040cdaf-e064-4133-bf55-70d16a44d8b5
+		summarizeBy: sum
+		sourceColumn: anomaly_lof
+
+		annotation SummarizationSetBy = Automatic
+
+	column anomalia_consenso
+		dataType: int64
+		formatString: 0
+		lineageTag: 06738287-e454-4ca9-abe7-de86ef0b1a05
+		summarizeBy: sum
+		sourceColumn: anomalia_consenso
+
+		annotation SummarizationSetBy = Automatic
+
+	column nivel_rareza
+		dataType: string
+		lineageTag: f778bc6c-54ad-4318-9ff6-53b5a73a33f8
+		summarizeBy: none
+		sourceColumn: nivel_rareza
+
+		annotation SummarizationSetBy = Automatic
+
+	column prioridad_modelo
+		dataType: string
+		lineageTag: 4e6ab247-3c6c-4a6e-9470-5b6716dc9f48
+		summarizeBy: none
+		sourceColumn: prioridad_modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column perfil_anomalia
+		dataType: string
+		lineageTag: c8e4339f-76eb-405c-ae0c-6b7049e0737a
+		summarizeBy: none
+		sourceColumn: perfil_anomalia
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'gold order_anomaly_scoring' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("TU_SERVIDOR", "OLIST_DW"),
+				  #"Navegación 1" = Origen{[Schema = "gold", Item = "order_anomaly_scoring"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+
